@@ -1,0 +1,35 @@
+<h1>Listing products</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nazwa</th>
+      <th>Cena</th>
+      <th>Numer katalogowy</th>
+      <th>Opis</th>
+      <th>Akcje</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <td><%= product.cat_number %></td>
+        <td><%= product.description %></td>
+        <td>
+        <%= link_to 'Show', product , class: "btn btn-default" %>
+        <%= link_to 'Edit', edit_product_path(product), class: "btn btn-primary"  %>
+        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>

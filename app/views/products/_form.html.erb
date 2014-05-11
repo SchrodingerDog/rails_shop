@@ -1,0 +1,30 @@
+<%= form_for(@product, :builder => BootStrapFormBuilder, :html => {:class => "form-horizontal"}) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> nie pozwolił(y) na zapisanie:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<fieldset>
+  <%= f.text_field :name %>
+  <%= f.text_field :price %>
+  <%= f.text_field :cat_number %>
+  <%= f.text_area :description %>
+  
+
+  <div class="form-group">
+    <%= f.label %(Akcja) , :class => "col-md-4 control-label"  %>
+    <div class="col-md-8">
+      <%= f.submit "Wyślij", :action => "products#index" , :class => "btn btn-success"%>
+    </div>
+  </div>
+
+    
+  </fieldset>
+
+<% end %>
