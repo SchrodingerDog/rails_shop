@@ -1,5 +1,5 @@
 <%= form_for(@product, :builder => BootStrapFormBuilder, :html => {:class => "form-horizontal"}) do |f| %>
-  <% if @product.errors.any? %>
+  <!--<% if @product.errors.any? %>
     <div class="col-md-4 row">
       <h2><%= pluralize(@product.errors.count, "error") %> exceeds</h2>
 
@@ -9,7 +9,7 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end %>-->
 <fieldset>
   <%= f.text_field :name %>
   <%= f.text_field :price %>
@@ -23,8 +23,5 @@
       <%= f.submit "Wyślij", :action => "products#index" , :class => "btn btn-success"%>
     </div>
   </div>
-
-    
-  </fieldset>
-
+</fieldset>
 <% end %>
