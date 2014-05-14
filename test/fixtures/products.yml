@@ -3,11 +3,11 @@
 one:
   name: MyString
   price: 1
-  cat_number: 1
+  catalog_number: 1
   description: MyString
 
 two:
   name: MyString
   price: 1
-  cat_number: 1
+  catalog_number: 1
   description: MyString
