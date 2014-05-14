@@ -1,6 +1,6 @@
 module StringsHelper 
 	
-  def self.prettyfiy(str)
+  def self.prettify(str)
     str.to_s.capitalize.split('_').join(' ')
   end
  

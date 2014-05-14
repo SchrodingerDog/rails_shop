@@ -21,7 +21,7 @@ class BootStrapFormBuilder < ActionView::Helpers::FormBuilder
 
       t.concat(super(method, {:class => "form-control input-md", :name =>method, :id=>method}))
       if @object.errors[method].present?
-        t.concat(t.content_tag(:span, StringsHelper::prettyfiy(method)+" "+@object.errors[method].join(","), :class => 'help-inline'))
+        t.concat(t.content_tag(:span, StringsHelper::prettify(method)+" "+@object.errors[method].join(","), :class => 'help-inline'))
       end
     })
     }
@@ -35,7 +35,7 @@ class BootStrapFormBuilder < ActionView::Helpers::FormBuilder
 
       t.concat(super(method, {:class => "form-control input-md", :name =>method, :id=>method}))
       if @object.errors[method].present?
-        t.concat(t.content_tag(:span, StringsHelper::prettyfiy(method)+" "+@object.errors[method].join(","), :class => 'help-inline'))
+        t.concat(t.content_tag(:span, StringsHelper::prettify(method)+" "+@object.errors[method].join(","), :class => 'help-inline'))
       end
     })
     }

@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
-	validates :name, :price, :description, :catalog_number, presence: true
-	validates :catalog_number, uniqueness: true
+	validates_presence_of :name, :price, :category_id, :description
+	validates_uniqueness_of :catalog_number
+	belongs_to :category
 end

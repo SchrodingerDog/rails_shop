@@ -2,12 +2,14 @@
 
 one:
   name: MyString
-  price: 1
+  price: 1.5
   catalog_number: 1
-  description: MyString
+  description: MyText
+  category_id: 
 
 two:
   name: MyString
-  price: 1
+  price: 1.5
   catalog_number: 1
-  description: MyString
+  description: MyText
+  category_id: 

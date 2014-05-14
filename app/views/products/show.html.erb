@@ -1,21 +1,21 @@
 <div class="row">	
 	<ul class="list-group col-md-4">
-	  <li class="list-group-item">
-	  	<h4 class="list-group-item-heading">Name</h4>
-	    <p class="list-group-item-text"><%= @product.name %></p>
-	  </li>
-	  <li class="list-group-item">
-	  	<h4 class="list-group-item-heading">Price</h4>
-	    <p class="list-group-item-text"><%= @product.price %></p>
-	  </li>
-	  <li class="list-group-item">
-	  	<h4 class="list-group-item-heading">Cat number</h4>
-	    <p class="list-group-item-text"><%= @product.catalog_number %></p>
-	  </li>
-	  <li class="list-group-item">
-	  	<h4 class="list-group-item-heading">Description</h4>
-	    <p class="list-group-item-text"><%= @product.description %></p>
-	  </li>
+	  
+	  <% @product.attributes.each do |k, v| %>
+	  	<%= if k != "category_id"
+	  	content_tag(:li, class: "list-group-item") { 
+		  	concat content_tag(:h4, StringsHelper::prettify(k), class: "list-group-item-heading")
+		  	concat content_tag(:p, StringsHelper::prettify(v), class: "list-group-item-text")
+	  	}
+		else
+		link_to(category_path(@product.category), class: "list-group-item active") {
+			concat content_tag(:h4, "Category", class: "list-group-item-heading")
+			concat content_tag(:p, @product.category.name, class: "list-group-item-text")
+		}
+	  	end  
+	  		
+	  	%>
+	  <% end %>
 	</ul>
 </div>
 <div class="row">
