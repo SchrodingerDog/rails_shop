@@ -3,11 +3,11 @@ class CreateProducts < ActiveRecord::Migration
     create_table :products do |t|
       t.string :name
       t.integer :price
-      t.integer :catalog_number
+      t.integer :cat_number
       t.string :description
 
       t.timestamps
     end
-    add_index :products, :catalog_number, unique: true
+    add_index :products, :cat_number, unique: true
   end
 end
