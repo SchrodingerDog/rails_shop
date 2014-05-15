@@ -1,6 +1,7 @@
 <table class="table table-bordered">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Name</th>
       <th>Parent</th>
       <th>Actions</th>
@@ -10,12 +11,13 @@
   <tbody>
     <% @categories.each do |category| %>
       <tr>
+        <td><%= category.id %></td>
         <td><%= category.name %></td>
         <td><%= category.parent_id %></td>
         <td>
         <%= link_to 'Show', category , class: "btn btn-default" %>
         <%= link_to 'Edit', edit_category_path(category), class: "btn btn-primary"  %>
-        <%= link_to 'Destroy',{:action => 'delete', :id => category}, class: "btn btn-danger"  %>
+        <%= link_to 'Destroy',delete_category_path(category), class: "btn btn-danger"  %>
 
         </td>
       </tr>

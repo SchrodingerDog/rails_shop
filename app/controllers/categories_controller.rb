@@ -1,7 +1,9 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :get_parents, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:show, :edit, :delete, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :delete, :update, :destroy]
+  # before_action :get_parents, only: [:show, :edit, :delete, :update, :destroy]
+  before_action :get_parents, only: [:show]
+
   # GET /categories
   # GET /categories.json
   def index
@@ -20,6 +22,10 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
+  end
+
+  # GET /categories/1/delete
+  def delete
   end
 
   # POST /categories
@@ -57,7 +63,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category.destroy
     respond_to do |format|
-      format.html { redirect_to categories, notice: 'Category was successfully destroyed.' }
+      format.html { redirect_to categories_path, notice: 'Category was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
