@@ -5,6 +5,7 @@ class CreateProducts < ActiveRecord::Migration
       t.float :price
       t.integer :catalog_number
       t.text :description
+      t.string :picture
       t.references :category, index: true
 
       t.timestamps

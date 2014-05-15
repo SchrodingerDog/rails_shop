@@ -2,17 +2,29 @@
 	<ul class="list-group col-md-4">
 	  
 	  <% @product.attributes.each do |k, v| %>
-	  	<%= if k != "category_id"
+	  	<%=
+	  	case k
+	  	when "picture"
+	  		link_to(@product.picture, class: "list-group-item active") {
+				concat content_tag(:h4, "Picture", class: "list-group-item-heading")
+				concat content_tag(:p, @product.picture, class: "list-group-item-text")
+			}
+		when "category_id"
+			link_to(category_path(@product.category), class: "list-group-item active") {
+				concat content_tag(:h4, "Category", class: "list-group-item-heading")
+				concat content_tag(:p, @product.category.name, class: "list-group-item-text")
+			}
+		else
 	  	content_tag(:li, class: "list-group-item") { 
 		  	concat content_tag(:h4, StringsHelper::prettify(k), class: "list-group-item-heading")
 		  	concat content_tag(:p, StringsHelper::prettify(v), class: "list-group-item-text")
-	  	}
-		else
-		link_to(category_path(@product.category), class: "list-group-item active") {
-			concat content_tag(:h4, "Category", class: "list-group-item-heading")
-			concat content_tag(:p, @product.category.name, class: "list-group-item-text")
-		}
-	  	end  
+	  	}		
+	  	end
+	 #  	 if k != "category_id"
+		# elsif k == "picture"
+		
+		# else
+	 #  	end  
 	  		
 	  	%>
 	  <% end %>

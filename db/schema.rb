@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140514163818) do
     t.float    "price"
     t.integer  "catalog_number"
     t.text     "description"
+    t.string   "picture"
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
