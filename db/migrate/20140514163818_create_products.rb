@@ -1,5 +1,5 @@
 class CreateProducts < ActiveRecord::Migration
-  def change
+  def up
     create_table :products do |t|
       t.string :name
       t.float :price
@@ -10,5 +10,10 @@ class CreateProducts < ActiveRecord::Migration
       t.timestamps
     end
     add_index :products, :catalog_number, unique: true
+      
+  end
+
+  def down
+    drop_table :products
   end
 end
